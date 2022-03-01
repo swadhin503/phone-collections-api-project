@@ -16,6 +16,8 @@ const searchResult = phones =>{
         // console.log(phones);
   const parentDiv = document.getElementById('card-container');
         parentDiv.textContent='';
+  const singleParentDiv = document.getElementById('single-phone');
+        singleParentDiv.textContent='';
 
  if(phones.length > 0){
     for(const phone of phones.slice(0,20)){
@@ -61,7 +63,6 @@ const searchResult = phones =>{
  }
 //  Single phone details showing
  const showPhoneDetails = id => {
-     console.log(id);
     const parentDiv = document.getElementById('single-phone');
     parentDiv.textContent='';
     const div = document.createElement('div');
@@ -71,11 +72,16 @@ const searchResult = phones =>{
         <div class="card-body">
              <h2>${id.data.name}</h2>
              <h3>Brand Name: ${id.data.brand}</h3>
-             <h5>Memory: ${id.data.mainFeatures.storage}</h5>
-             <h5>Memory: ${id.data.mainFeatures.storage}</h5>
+             <p>Memory: ${id.data.mainFeatures.storage}</p>
+             <p>Sensors: ${id.data.mainFeatures.sensors}</p>
+             <p>WLAN: ${id.data.others.WLAN}</p>
+             <p>Bluetooth: ${id.data.others.Bluetooth}</p>             
+             <p>Release Date: ${id.data.releaseDate || 'Release date coming soon'}</p>             
+
         </div>
   </div>
     `;
+    
     parentDiv.appendChild(div);
  }
  
