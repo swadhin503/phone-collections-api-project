@@ -16,10 +16,13 @@ const searchResult = phones =>{
         // console.log(phones);
   const parentDiv = document.getElementById('card-container');
         parentDiv.textContent='';
+  const blankDiv = document.getElementById('blank-result');
+        blankDiv.textContent='';
   const singleParentDiv = document.getElementById('single-phone');
         singleParentDiv.textContent='';
-
+// Error handling
  if(phones.length > 0){
+    //  showing first 20 phones
     for(const phone of phones.slice(0,20)){
         const div = document.createElement('div');
         div.classList.add('col');
@@ -40,8 +43,7 @@ const searchResult = phones =>{
           </div>
         </div>
         `;
-        parentDiv.appendChild(div);
-       
+        parentDiv.appendChild(div);  
     }
  }
  else{
@@ -74,7 +76,7 @@ const searchResult = phones =>{
              <h3>Brand Name: ${id.data.brand}</h3>
              <p>Memory: ${id.data.mainFeatures.storage}</p>
              <p>Sensors: ${id.data.mainFeatures.sensors}</p>
-             <p>WLAN: ${id.data.others.WLAN}</p>
+             <p>WLAN: ${'No'|| id.data.others.WLAN}</p>
              <p>Bluetooth: ${id.data.others.Bluetooth}</p>             
              <p>Release Date: ${id.data.releaseDate || 'Release date coming soon'}</p>             
 
